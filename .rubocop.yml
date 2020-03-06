@@ -1,0 +1,29 @@
+require: rubocop-rails
+
+AllCops:
+  EnabledByDefault: true
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: false
+
+Style/MissingElse:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Lint/NumberConversion:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Metrics:
+  Enabled: false
+
