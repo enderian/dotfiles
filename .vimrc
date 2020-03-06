@@ -1,23 +1,29 @@
-call plug#begin()
+if empty(glob("~/.vim/autoload/plug.vim"))
+  silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * silent! PlugInstall
+endif
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+silent! if plug#begin()
 
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
-Plug 'itchyny/vim-gitbranch'
-Plug 'tpope/vim-fugitive'
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
 
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'thoughtbot/vim-rspec'
-Plug 'dense-analysis/ale'
+  Plug 'itchyny/vim-gitbranch'
+  Plug 'tpope/vim-fugitive'
 
-Plug 'tyru/open-browser.vim'
-Plug 'tyru/open-browser-github.vim'
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'tpope/vim-rails'
+  Plug 'thoughtbot/vim-rspec'
+  Plug 'dense-analysis/ale'
 
-call plug#end()
+  Plug 'tyru/open-browser.vim'
+  Plug 'tyru/open-browser-github.vim'
+
+  call plug#end()
+endif
 
 " Mouse stuff
 set mouse=niv

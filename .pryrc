@@ -1,3 +1,3 @@
 if defined?(Skroutz)
-  load '~/.private/skroutz_pryrc'
+  load '~/.skroutz.pry'
 end
