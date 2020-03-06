@@ -27,9 +27,10 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 # Anaconda
 export PATH=$HOME/anaconda3/bin:$PATH
 
-# Source other files
-export PATH=$HOME/.scripts:$PATH
-
 # FZF
 export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Other scripts and sources
+export PATH=$HOME/.scripts:$PATH
+[ -f ~/.skroutz.zsh ] && source ~/.skroutz.zsh
