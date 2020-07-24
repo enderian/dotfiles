@@ -1,3 +1,4 @@
+# Load work shortcuts
 if defined?(Skroutz)
-  load '~/.skroutz.pry'
+  load '~/.skroutz/rails.pry'
 end

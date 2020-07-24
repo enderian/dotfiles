@@ -1,43 +1,26 @@
 #!/bin/bash
 
 system_type=$(uname -s)
-cd "$HOME"
+if [ "$system_type" != "Darwin" ]; then
+  echo "This isn't MacOS, exiting o/"
+  exit 1
+fi
 
 # Submodules
-yadm submodule update --recursive --init
+yadm submodule update --recursive --init --remote
 
 # Homebrew
-if [ "$system_type" = "Darwin" ]; then
-  # install homebrew if it's missing
-  if ! command -v brew >/dev/null 2>&1; then
-    echo "Installing homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
-  if [ -f "$HOME/.Brewfile" ]; then
-    echo "Updating homebrew bundle"
-    brew bundle --global
-  fi
-fi
+echo "Applying Brewfile..."
+brew bundle --global
 
 # iTerm2
-if [ "$system_type" = "Darwin" ]; then
-  # possibly add something here to ensure iTerm2 is installed using Homebrew
-  # cask like in the previous example
-  if [ -d "$HOME/.iterm2" ]; then
-    echo "Setting iTerm preference folder"
-    defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
-  fi
-fi
-
-# Node and Pure
-. "$(brew --prefix)/opt/nvm/nvm.sh"
-. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
-nvm install node && nvm alias default node
-nvm use node && npm install --global pure-prompt
+echo "Setting iTerm preference folder..."
+defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
 
 # Vim
 if command -v vim >/dev/null 2>&1; then
-  echo "Bootstraping Vim"
+  echo "Bootstraping Vim..."
   vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 fi
 
+echo "Enjoy! \o/"
