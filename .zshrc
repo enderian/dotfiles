@@ -4,7 +4,12 @@ export ZSH_THEME=""
 export ZSH_CUSTOM="$HOME/.zsh"
 export NVM_DIR="$HOME/.nvm"
 
-plugins=(git sudo virtualenv ruby rails bundler)
+plugins=(
+    git sudo
+    zsh-autosuggestions
+    ruby rails bundler
+    virtualenv
+)
 
 # Shell
 eval "$(starship init zsh)"
@@ -30,8 +35,8 @@ export PATH=$(brew --prefix)/anaconda3/bin:$PATH
 
 # FZF
 export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh || true
 
 # Other scripts and sources
 export PATH=$HOME/.scripts:$PATH
-[ -f ~/.skroutz/shell.zsh ] && source ~/.skroutz/shell.zsh
+[ -f ~/.skroutz/shell.zsh ] && source ~/.skroutz/shell.zsh || true
